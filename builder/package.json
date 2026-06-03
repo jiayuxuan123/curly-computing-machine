@@ -1,0 +1,17 @@
+{
+  "name": "curly-computing-machine-builder",
+  "version": "1.0.0",
+  "description": "RSS Feed Builder for Curly Computing Machine",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch"
+  },
+  "keywords": ["rss", "feed", "builder"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rss-parser": "^3.12.0",
+    "node-fetch": "^2.6.11"
+  }
+}
