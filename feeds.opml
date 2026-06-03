@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>AI News Feeds</title>
+    <dateCreated>2026-06-03</dateCreated>
+    <ownerName>AI News Aggregator</ownerName>
+  </head>
+  <body>
+    <outline text="Tech News" title="Tech News">
+      <outline type="rss" text="TechCrunch" title="TechCrunch" xmlUrl="https://techcrunch.com/feed/" htmlUrl="https://techcrunch.com/"/>
+      <outline type="rss" text="The Verge" title="The Verge" xmlUrl="https://www.theverge.com/rss/index.xml" htmlUrl="https://www.theverge.com/"/>
+      <outline type="rss" text="ArsTechnica" title="ArsTechnica" xmlUrl="https://feeds.arstechnica.com/arstechnica/index" htmlUrl="https://arstechnica.com/"/>
+      <outline type="rss" text="VentureBeat" title="VentureBeat" xmlUrl="https://venturebeat.com/feed/" htmlUrl="https://venturebeat.com/"/>
+      <outline type="rss" text="Wired" title="Wired" xmlUrl="https://www.wired.com/feed/rss" htmlUrl="https://www.wired.com/"/>
+      <outline type="rss" text="MIT Tech Review" title="MIT Tech Review" xmlUrl="https://www.technologyreview.com/feed/" htmlUrl="https://www.technologyreview.com/"/>
+    </outline>
+    <outline text="AI" title="AI">
+      <outline type="rss" text="NVIDIA Blog" title="NVIDIA Blog" xmlUrl="https://blogs.nvidia.com/feed/" htmlUrl="https://blogs.nvidia.com/"/>
+      <outline type="rss" text="MarkTechPost" title="MarkTechPost" xmlUrl="https://www.marktechpost.com/feed/" htmlUrl="https://www.marktechpost.com/"/>
+    </outline>
+    <outline text="Developer" title="Developer">
+      <outline type="rss" text="GitHub Blog" title="GitHub Blog" xmlUrl="https://github.blog/feed/" htmlUrl="https://github.blog/"/>
+      <outline type="rss" text="Vercel" title="Vercel" xmlUrl="https://vercel.com/blog/rss.xml" htmlUrl="https://vercel.com/blog/"/>
+    </outline>
+    <outline text="Community" title="Community">
+      <outline type="rss" text="Hacker News" title="Hacker News" xmlUrl="https://hnrss.org/frontpage?points=50" htmlUrl="https://news.ycombinator.com/"/>
+    </outline>
+  </body>
+</opml>

@@ -1,0 +1,72 @@
+{
+  "_说明": "在此文件中添加或修改 RSS 源。category 用于分类，lang 用于语言标识。",
+  "_note": "Add or modify RSS sources here. 'category' is for classification, 'lang' for language.",
+  "feeds": [
+    {
+      "name": "TechCrunch",
+      "url": "https://techcrunch.com/feed/",
+      "category": "科技新闻",
+      "lang": "en"
+    },
+    {
+      "name": "The Verge",
+      "url": "https://www.theverge.com/rss/index.xml",
+      "category": "科技新闻",
+      "lang": "en"
+    },
+    {
+      "name": "ArsTechnica",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "category": "科技新闻",
+      "lang": "en"
+    },
+    {
+      "name": "VentureBeat",
+      "url": "https://venturebeat.com/feed/",
+      "category": "科技新闻",
+      "lang": "en"
+    },
+    {
+      "name": "Wired",
+      "url": "https://www.wired.com/feed/rss",
+      "category": "科技新闻",
+      "lang": "en"
+    },
+    {
+      "name": "MIT Tech Review",
+      "url": "https://www.technologyreview.com/feed/",
+      "category": "科技媒体",
+      "lang": "en"
+    },
+    {
+      "name": "Hacker News",
+      "url": "https://hnrss.org/frontpage?points=50",
+      "category": "社区",
+      "lang": "en"
+    },
+    {
+      "name": "MarkTechPost",
+      "url": "https://www.marktechpost.com/feed/",
+      "category": "AI 媒体",
+      "lang": "en"
+    },
+    {
+      "name": "NVIDIA Blog",
+      "url": "https://blogs.nvidia.com/feed/",
+      "category": "AI 公司",
+      "lang": "en"
+    },
+    {
+      "name": "GitHub Blog",
+      "url": "https://github.blog/feed/",
+      "category": "开发者",
+      "lang": "en"
+    },
+    {
+      "name": "Vercel",
+      "url": "https://vercel.com/blog/rss.xml",
+      "category": "开发者",
+      "lang": "en"
+    }
+  ]
+}
