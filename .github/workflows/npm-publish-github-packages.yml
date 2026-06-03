@@ -1,52 +1,44 @@
-name: Build and Deploy RSS Feeds
+name: Update AI News
 
 on:
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '15 * * * *'
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-
+          node-version: 20
       - name: Install dependencies
-        working-directory: ./builder
+        working-directory: builder
         run: npm install
-
-      - name: Build RSS feeds
-        working-directory: ./builder
-        run: npm run build
-
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add data/data.json
-          if [ -n "$(git status --porcelain)" ]; then
-            git commit -m "chore: update RSS feed data at $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-            git push
-          else
-            echo "No changes to commit"
-          fi
-
-      - name: Deploy to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+      - name: Build data.json
+        working-directory: builder
+        run: node build.js
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-
-      - name: Deploy Pages
+      - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
