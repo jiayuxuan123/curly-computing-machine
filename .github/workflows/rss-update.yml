@@ -1,0 +1,59 @@
+name: Build and Deploy RSS Feeds
+
+on:
+  schedule:
+    # 每天 00:00 和 12:00 UTC 运行 (每半天)
+    - cron: '0 0,12 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./builder
+        run: npm install
+
+      - name: Build RSS feeds
+        working-directory: ./builder
+        run: npm run build
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/data.json
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "chore: update RSS feed data at $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+          else
+            echo "No changes to commit"
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '.'
+
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+      - name: Notify completion
+        run: |
+          echo "✓ Build completed at $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+          echo "✓ Data committed and pushed"
+          echo "✓ Deployed to GitHub Pages"
