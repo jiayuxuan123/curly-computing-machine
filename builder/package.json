@@ -1,17 +1,16 @@
 {
-  "name": "curly-computing-machine-builder",
+  "name": "ai-news-builder",
   "version": "1.0.0",
-  "description": "RSS Feed Builder for Curly Computing Machine",
+  "private": true,
+  "description": "Fetch RSS feeds, deduplicate, classify AI news, and generate static JSON",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js --watch"
+    "build": "node build.js"
   },
-  "keywords": ["rss", "feed", "builder"],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
-    "rss-parser": "^3.12.0",
-    "node-fetch": "^2.6.11"
+    "rss-parser": "^3.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
